@@ -4,7 +4,6 @@ import pickle
 
 # Load Pipeline Model
 model = pickle.load(open("linear_model.pkl", "rb"))
-
 st.title("House Price Prediction")
 
 area = st.number_input(
