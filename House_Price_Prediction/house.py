@@ -3,7 +3,14 @@ import pandas as pd
 import pickle
 
 # Load Pipeline Model
-model = pickle.load(open("linear_model.pkl", "rb"))
+import os
+import pickle
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "linear_model.pkl")
+
+with open(MODEL_PATH, "rb") as f:
+    model = pickle.load(f)
 st.title("House Price Prediction")
 
 area = st.number_input(
