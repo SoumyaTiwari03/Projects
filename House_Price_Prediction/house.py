@@ -3,9 +3,7 @@ import pandas as pd
 import pickle
 
 # Load Pipeline Model
-model = pickle.load(
-    open("linear_model.pkl", "rb")
-)
+model = pickle.load(open("models/linear_model.pkl", "rb"))
 
 st.title("House Price Prediction")
 
