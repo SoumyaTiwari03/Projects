@@ -1,11 +1,19 @@
 import streamlit as st
 import pandas as pd
+import os
 import pickle
 
-model = pickle.load(
-    open("walmart_sales_model.pkl", "rb")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(
+    BASE_DIR,
+    "walmart_sales_model.pkl"
 )
 
+with open(model_path, "rb") as f:
+    model = pickle.load(f)
+
+    
 st.title("Walmart Sales Prediction")
 
 store = st.number_input(
