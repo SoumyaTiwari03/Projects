@@ -1,10 +1,17 @@
-import streamlit as st
+import os
 import pickle
-import numpy as np
 
-with open("model.pkl", "rb") as f:
-    model=pickle.load(f)
-# model = pickle.load(open("model.pkl", "rb"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(
+    BASE_DIR,
+    "model.pkl"
+)
+
+with open(model_path, "rb") as f:
+    model = pickle.load(f)
+    
+
 st.title("Student Performance Prediction")
 writing_score = st.number_input(
     "Enter Writing Score",
