@@ -12,6 +12,16 @@ model_path = os.path.join(
 
 with open(model_path, "rb") as f:
     model = pickle.load(f)
+
+    scaler_path = os.path.join(
+    BASE_DIR,
+    "scaler.pkl"
+)
+
+with open(scaler_path, "rb") as f:
+    scaler = pickle.load(f)
+
+    
 st.title("House Price Prediction")
 
 area = st.number_input(
