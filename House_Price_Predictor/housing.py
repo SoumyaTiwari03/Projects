@@ -1,12 +1,17 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import os
 
-# Load Linear Regression Model
-model = pickle.load(
-    open("linear_regression_model.pkl", "rb")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(
+    BASE_DIR,
+    "linear_regression_model.pkl"
 )
 
+with open(model_path, "rb") as f:
+    model = pickle.load(f)
 st.title("House Price Prediction")
 
 area = st.number_input(
